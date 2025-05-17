@@ -5,7 +5,7 @@ app = FastAPI()
 
 EXTERNAL_API = 'https://pokeapi.co/api/v2/pokemon/'
 @app.get("/pokemon/{pokemon_id}")
-async def get_pokemon(pokemon_id: int, types: str = None):
+async def get_pokemon(pokemon_id: str, types: str = None):
     try:
         async with httpx.AsyncClient() as client:
             response = await client.get(f"{EXTERNAL_API}{pokemon_id}")
